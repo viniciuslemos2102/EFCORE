@@ -13,6 +13,7 @@ namespace EFCORE.Models
         {}
 
         public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<TipoSocio> TipoSocios { get; set; }
 
     }
 }

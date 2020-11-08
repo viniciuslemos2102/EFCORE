@@ -4,14 +4,16 @@ using EFCORE.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCORE.Migrations
 {
     [DbContext(typeof(AlunoContext))]
-    partial class AlunoContextModelSnapshot : ModelSnapshot
+    [Migration("20201108182956_IncluirFoto_Texto")]
+    partial class IncluirFoto_Texto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,39 +56,9 @@ namespace EFCORE.Migrations
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
 
-                    b.Property<int?>("TipoSocioId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TipoSocioId");
 
                     b.ToTable("Alunos");
-                });
-
-            modelBuilder.Entity("EFCORE.Models.TipoSocio", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DuracaoEmMeses")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TaxaDesconto")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TipoSocios");
-                });
-
-            modelBuilder.Entity("EFCORE.Models.Aluno", b =>
-                {
-                    b.HasOne("EFCORE.Models.TipoSocio", "TipoSocio")
-                        .WithMany()
-                        .HasForeignKey("TipoSocioId");
                 });
 #pragma warning restore 612, 618
         }

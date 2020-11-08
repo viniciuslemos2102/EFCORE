@@ -55,7 +55,7 @@ namespace EFCORE
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=TesteController1}/{action=Index}/{id?}");
+                    pattern: "{controller=AlunoTipoSocioController1}/{action=Index}/{id?}");
             });
         }
     }
